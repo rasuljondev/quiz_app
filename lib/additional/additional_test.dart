@@ -1,3 +1,4 @@
+import 'dart:math';
 import 'package:chemistry_through_english/additional/additional_questions.dart';
 import 'package:flutter/material.dart';
 
@@ -9,11 +10,20 @@ class AdditionalTest extends StatefulWidget {
 }
 
 class _AdditionalTestState extends State<AdditionalTest> {
-  List<AdditionalQuestions> questionList = additonalQuestions;
+  late List<AdditionalQuestions> questionList;
   int currentQuestionIndex = 0;
   int correctAnswers = 0;
   String selectedAnswer = ''; // Track the selected answer
   bool showFeedback = false; // Whether to show feedback
+
+  @override
+  void initState() {
+    super.initState();
+
+    // Create a copy of the questions and shuffle them
+    questionList = List<AdditionalQuestions>.from(additonalQuestions);
+    questionList.shuffle(Random());
+  }
 
   // Move to the next question
   void nextQuestion() {
@@ -35,7 +45,8 @@ class _AdditionalTestState extends State<AdditionalTest> {
       builder: (context) {
         return AlertDialog(
           title: const Text('Quiz Finished!'),
-          content: Text('You got $correctAnswers out of ${150} correct!'),
+          content: Text(
+              'You got $correctAnswers out of ${questionList.length} correct!'),
           actions: [
             TextButton(
               onPressed: () {
