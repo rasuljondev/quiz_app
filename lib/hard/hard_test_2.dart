@@ -9,44 +9,52 @@ class HardTests2 extends StatefulWidget {
 }
 
 class _HardTests2State extends State<HardTests2> {
-  final Map<int, String?> userAnswers = {}; // To store user-selected answers
-  final Map<int, bool?> questionResults =
-      {}; // To store correct/incorrect results
-  final List<Map<String, dynamic>> textFieldQuestions = [
+  final List<Map<String, dynamic>> mquestions = [
     {
       "question":
           "1 Michael Faraday was the first person to recognise Perkin’s ability as a student of chemistry.",
+      "options": ["TRUE", "FALSE", "NOT GIVEN"],
       "answer": "FALSE"
     },
     {
       "question":
           "2 Michael Faraday suggested Perkin should enrol in the Royal College of Chemistry.",
+      "options": ["TRUE", "FALSE", "NOT GIVEN"],
       "answer": "NOT GIVEN"
     },
     {
       "question": "3 Perkin employed August Wilhelm Hofmann as his assistant.",
+      "options": ["TRUE", "FALSE", "NOT GIVEN"],
       "answer": "FALSE"
     },
     {
       "question":
           "4 Perkin was still young when he made the discovery that made him rich and famous.",
+      "options": ["TRUE", "FALSE", "NOT GIVEN"],
       "answer": "TRUE"
     },
     {
       "question":
           "5 The trees from which quinine is derived grow only in South America.",
+      "options": ["TRUE", "FALSE", "NOT GIVEN"],
       "answer": "NOT GIVEN"
     },
     {
       "question":
           "6 Perkin hoped to manufacture a drug from a coal tar waste product.",
+      "options": ["TRUE", "FALSE", "NOT GIVEN"],
       "answer": "TRUE"
     },
     {
       "question":
           "7 Perkin was inspired by the discoveries of the famous scientist Louis Pasteur",
+      "options": ["TRUE", "FALSE", "NOT GIVEN"],
       "answer": "NOT GIVEN"
     },
+  ];
+
+  // To store correct/incorrect results
+  final List<Map<String, dynamic>> textFieldQuestions = [
     {
       "question":
           "8 Before Perkin’s discovery, with what group in society was the colour purple associated?",
@@ -78,7 +86,9 @@ class _HardTests2State extends State<HardTests2> {
       "answer": "malaria"
     },
   ];
-
+  final Map<int, String?> muserAnswers = {};
+  final Map<int, String?> userAnswers = {}; // To store user-selected answers
+  final Map<int, bool?> questionResults = {};
   final List<TextEditingController> textFieldControllers = [];
   bool isSubmitted = false;
   bool showFeedback = false;
@@ -100,6 +110,13 @@ class _HardTests2State extends State<HardTests2> {
 
   void _showResultsDialog() {
     int correctAnswers = 0;
+    int score = 0;
+
+    for (int i = 0; i < mquestions.length; i++) {
+      if (muserAnswers[i] == mquestions[i]["answer"]) {
+        score++;
+      }
+    }
 
     // Count correct answers for TextField questions
     for (int i = 0; i < textFieldQuestions.length; i++) {
@@ -114,8 +131,8 @@ class _HardTests2State extends State<HardTests2> {
       builder: (BuildContext context) {
         return AlertDialog(
           title: const Text("Results"),
-          content: Text(
-              "You got $correctAnswers out of ${textFieldQuestions.length} correct!"),
+          content:
+              Text("You got ${correctAnswers + score} out of ${13} correct!"),
           actions: [
             TextButton(
               onPressed: () {
@@ -188,43 +205,75 @@ NOT GIVEN    if there is no information on this
               ),
               const SizedBox(height: 16),
 
-              // Text Field Questions
-              const SizedBox(height: 24),
-              ...[
-                for (int i = 0; i < 7; i++) ...[
-                  Text(
-                    textFieldQuestions[i]["question"]!,
-                    style: const TextStyle(color: Colors.white, fontSize: 18),
-                  ),
-                  const SizedBox(height: 8),
-                  TextField(
-                    controller: textFieldControllers[i],
-                    enabled: !isSubmitted,
-                    decoration: InputDecoration(
-                      filled: true,
-                      fillColor: isSubmitted
-                          ? textFieldControllers[i].text.trim().toLowerCase() ==
-                                  textFieldQuestions[i]["answer"]!.toLowerCase()
-                              ? Colors.green
-                              : Colors.red
-                          : Colors.white10,
-                      border: const OutlineInputBorder(),
+              /// Display questions
+              ...mquestions.asMap().entries.map((entry) {
+                int index = entry.key;
+                Map<String, dynamic> question = entry.value;
+
+                return Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      question['question'],
+                      style: const TextStyle(color: Colors.white, fontSize: 18),
                     ),
-                    style: const TextStyle(color: Colors.white),
-                  ),
-                  if (isSubmitted &&
-                      textFieldControllers[i].text.trim().toLowerCase() !=
-                          textFieldQuestions[i]["answer"]!.toLowerCase())
-                    Padding(
-                      padding: const EdgeInsets.only(top: 4.0),
-                      child: Text(
-                        "Correct answer: ${textFieldQuestions[i]["answer"]}",
-                        style: const TextStyle(color: Colors.green),
-                      ),
+                    const SizedBox(height: 8),
+                    Column(
+                      children: question['options'].map<Widget>((option) {
+                        Color buttonColor = Colors.blue;
+
+                        if (muserAnswers[index] != null) {
+                          if (muserAnswers[index] == option) {
+                            buttonColor =
+                                muserAnswers[index] == question['answer']
+                                    ? Colors.green
+                                    : Colors.red;
+                          } else if (option == question['answer']) {
+                            buttonColor = Colors.green;
+                          }
+                        }
+
+                        return GestureDetector(
+                          onTap: () {
+                            if (muserAnswers[index] == null) {
+                              setState(() {
+                                muserAnswers[index] = option;
+                              });
+                            }
+                          },
+                          child: AnimatedContainer(
+                            duration: const Duration(milliseconds: 200),
+                            decoration: BoxDecoration(
+                              color: buttonColor,
+                              borderRadius: BorderRadius.circular(10),
+                              boxShadow: const [
+                                BoxShadow(
+                                  color: Colors.black26,
+                                  blurRadius: 5,
+                                  offset: Offset(0, 2),
+                                ),
+                              ],
+                            ),
+                            padding: const EdgeInsets.symmetric(vertical: 12),
+                            margin: const EdgeInsets.symmetric(vertical: 4),
+                            child: Center(
+                              child: Text(
+                                option,
+                                style: const TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                                textAlign: TextAlign.center,
+                              ),
+                            ),
+                          ),
+                        );
+                      }).toList(),
                     ),
-                  const SizedBox(height: 16),
-                ],
-              ],
+                    const SizedBox(height: 24),
+                  ],
+                );
+              }),
               const Text(
                 """Questions 8-13
 
@@ -240,7 +289,7 @@ Choose ONE WORD from the passage for each answer. Write your answers in boxes 8-
               // Text Field Questions
               const SizedBox(height: 24),
               ...[
-                for (int i = 7; i < textFieldQuestions.length; i++) ...[
+                for (int i = 0; i < textFieldQuestions.length; i++) ...[
                   Text(
                     textFieldQuestions[i]["question"]!,
                     style: const TextStyle(color: Colors.white, fontSize: 18),
