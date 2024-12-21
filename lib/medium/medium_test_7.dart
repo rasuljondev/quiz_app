@@ -135,9 +135,9 @@ class _MediumTest7State extends State<MediumTest7> {
               ),
 
               const Text(
-                """Atoms form chemical bonds to achieve a more stable electronic arrangement. There are three main types of bonds: ionic, covalent, and metallic.
-Ionic bonds occur when one atom transfers electrons to another, creating positively and negatively charged ions that attract each other. This type of bond is commonly found in salts, such as sodium chloride. Covalent bonds form when two atoms share electrons, resulting in a strong bond. Water (H₂O) and carbon dioxide (CO₂) are examples of molecules with covalent bonds. Metallic bonds, on the other hand, occur between metal atoms and involve a "sea" of shared electrons, giving metals their characteristic properties such as conductivity and malleability.
-Chemical bonding is fundamental to understanding the structure and properties of substances, as it explains how atoms combine and interact.
+                """   Atoms form chemical bonds to achieve a more stable electronic arrangement. There are three main types of bonds: ionic, covalent, and metallic.
+    Ionic bonds occur when one atom transfers electrons to another, creating positively and negatively charged ions that attract each other. This type of bond is commonly found in salts, such as sodium chloride. Covalent bonds form when two atoms share electrons, resulting in a strong bond. Water (H₂O) and carbon dioxide (CO₂) are examples of molecules with covalent bonds. Metallic bonds, on the other hand, occur between metal atoms and involve a "sea" of shared electrons, giving metals their characteristic properties such as conductivity and malleability.
+    Chemical bonding is fundamental to understanding the structure and properties of substances, as it explains how atoms combine and interact.
 """,
                 style: TextStyle(color: Colors.white, fontSize: 20),
               ),

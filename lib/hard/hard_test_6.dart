@@ -99,13 +99,13 @@ class _HardTests6State extends State<HardTests6> {
               ),
 
               const Text(
-                """Atoms form chemical bonds to achieve stable electron configurations. There are three primary types of bonds:
-1. Ionic Bonds: Formed between metals and nonmetals through the transfer of electrons. For example, sodium chloride (NaCl).
-2. Covalent Bonds: Formed when two nonmetals share electrons, such as in a water molecule (H₂O).
-3. Metallic Bonds: Found in metals where electrons form a "sea" that flows around positively charged ions, as seen in aluminum or copper.
-Molecular geometry describes the shape of molecules. It is determined by the arrangement of electron pairs around the central atom, often predicted using the VSEPR theory. For example:
-Linear: Two electron pairs arranged 180° apart (e.g., CO₂).
-Tetrahedral: Four pairs spaced 109.5° apart (e.g., CH₄).
+                """   Atoms form chemical bonds to achieve stable electron configurations. There are three primary types of bonds:
+    1. Ionic Bonds: Formed between metals and nonmetals through the transfer of electrons. For example, sodium chloride (NaCl).
+    2. Covalent Bonds: Formed when two nonmetals share electrons, such as in a water molecule (H₂O).
+    3. Metallic Bonds: Found in metals where electrons form a "sea" that flows around positively charged ions, as seen in aluminum or copper.
+    Molecular geometry describes the shape of molecules. It is determined by the arrangement of electron pairs around the central atom, often predicted using the VSEPR theory. For example:
+    Linear: Two electron pairs arranged 180° apart (e.g., CO₂).
+    Tetrahedral: Four pairs spaced 109.5° apart (e.g., CH₄).
 """,
                 style: TextStyle(color: Colors.white, fontSize: 20),
               ),

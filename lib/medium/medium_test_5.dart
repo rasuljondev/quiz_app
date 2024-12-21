@@ -135,10 +135,10 @@ class _MediumTest5State extends State<MediumTest5> {
               ),
 
               const Text(
-                """Chemical reactions involve the transformation of substances into different substances. There are several types of reactions, including synthesis, decomposition, single replacement, and double replacement.
-In a synthesis reaction, two or more substances combine to form a single product. For example, hydrogen and oxygen gases react to form water. In decomposition reactions, a single compound breaks down into two or more products, such as the decomposition of water into hydrogen and oxygen gases.
-Single replacement reactions occur when one element replaces another in a compound, while double replacement reactions involve the exchange of elements between two compounds. Combustion reactions, which produce heat and light, often involve the burning of a fuel in the presence of oxygen.
-Understanding these reaction types is essential for predicting the outcomes of chemical processes in both laboratory and industrial settings.
+                """   Chemical reactions involve the transformation of substances into different substances. There are several types of reactions, including synthesis, decomposition, single replacement, and double replacement.
+    In a synthesis reaction, two or more substances combine to form a single product. For example, hydrogen and oxygen gases react to form water. In decomposition reactions, a single compound breaks down into two or more products, such as the decomposition of water into hydrogen and oxygen gases.
+    Single replacement reactions occur when one element replaces another in a compound, while double replacement reactions involve the exchange of elements between two compounds. Combustion reactions, which produce heat and light, often involve the burning of a fuel in the presence of oxygen.
+    Understanding these reaction types is essential for predicting the outcomes of chemical processes in both laboratory and industrial settings.
 """,
                 style: TextStyle(color: Colors.white, fontSize: 20),
               ),

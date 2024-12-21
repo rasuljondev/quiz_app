@@ -128,9 +128,9 @@ class _MediumTest3State extends State<MediumTest4> {
               ),
 
               const Text(
-                """Acids and bases are two important categories of chemical compounds. Acids are substances that produce hydrogen ions (H⁺) when dissolved in water, while bases produce hydroxide ions (OH⁻). The pH scale, which ranges from 0 to 14, measures the acidity or alkalinity of a solution. A pH below 7 indicates an acidic solution, a pH of 7 is neutral, and a pH above 7 indicates a basic solution.
-Common examples of acids include vinegar (acetic acid) and citrus fruits (citric acid), while common bases include baking soda (sodium bicarbonate) and soap. Acids are often sour in taste and can react with metals to produce hydrogen gas, whereas bases are bitter and feel slippery to the touch.
-Acid-base reactions often result in the formation of water and a salt, a process known as neutralization. This principle is widely applied in industries, such as medicine, agriculture, and cleaning products.
+                """   Acids and bases are two important categories of chemical compounds. Acids are substances that produce hydrogen ions (H⁺) when dissolved in water, while bases produce hydroxide ions (OH⁻). The pH scale, which ranges from 0 to 14, measures the acidity or alkalinity of a solution. A pH below 7 indicates an acidic solution, a pH of 7 is neutral, and a pH above 7 indicates a basic solution.
+    Common examples of acids include vinegar (acetic acid) and citrus fruits (citric acid), while common bases include baking soda (sodium bicarbonate) and soap. Acids are often sour in taste and can react with metals to produce hydrogen gas, whereas bases are bitter and feel slippery to the touch.
+    Acid-base reactions often result in the formation of water and a salt, a process known as neutralization. This principle is widely applied in industries, such as medicine, agriculture, and cleaning products.
 """,
                 style: TextStyle(color: Colors.white, fontSize: 20),
               ),

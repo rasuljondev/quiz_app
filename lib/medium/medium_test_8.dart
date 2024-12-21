@@ -134,8 +134,8 @@ class _MediumTest8State extends State<MediumTest8> {
               ),
 
               const Text(
-                """Water is essential in chemistry as a solvent, reactant, and medium for many processes. Its unique properties, such as its high heat capacity and ability to dissolve many substances, make it vital for life and industry. The water cycle describes the continuous movement of water on Earth, including evaporation, condensation, precipitation, and runoff.
-Evaporation occurs when water molecules absorb energy and transition into a gaseous state. This water vapor rises and cools, leading to condensation and the formation of clouds. When droplets in the clouds grow large enough, they fall as precipitation (rain, snow, etc.). Runoff then returns water to rivers, lakes, and oceans, completing the cycle.
+                """   Water is essential in chemistry as a solvent, reactant, and medium for many processes. Its unique properties, such as its high heat capacity and ability to dissolve many substances, make it vital for life and industry. The water cycle describes the continuous movement of water on Earth, including evaporation, condensation, precipitation, and runoff.
+    Evaporation occurs when water molecules absorb energy and transition into a gaseous state. This water vapor rises and cools, leading to condensation and the formation of clouds. When droplets in the clouds grow large enough, they fall as precipitation (rain, snow, etc.). Runoff then returns water to rivers, lakes, and oceans, completing the cycle.
 """,
                 style: TextStyle(color: Colors.white, fontSize: 20),
               ),

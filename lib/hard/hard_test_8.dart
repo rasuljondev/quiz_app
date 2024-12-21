@@ -114,13 +114,13 @@ class _HardTests8State extends State<HardTests8> {
               ),
 
               const Text(
-                """Organic chemistry focuses on compounds containing carbon. Hydrocarbons are the simplest organic compounds, made up of only carbon and hydrogen. They can be classified as:
-1. Alkanes: Single bonds only (e.g., methane, CH₄).
-2. Alkenes: Contain at least one double bond (e.g., ethene, C₂H₄).
-3. Alkynes: Contain at least one triple bond (e.g., ethyne, C₂H₂).
-Functional groups are specific groups of atoms within molecules that determine their chemical reactivity. For instance:
-Hydroxyl (-OH): Found in alcohols
-Carboxyl (-COOH): Found in acids like acetic acid
+                """   Organic chemistry focuses on compounds containing carbon. Hydrocarbons are the simplest organic compounds, made up of only carbon and hydrogen. They can be classified as:
+    1. Alkanes: Single bonds only (e.g., methane, CH₄).
+    2. Alkenes: Contain at least one double bond (e.g., ethene, C₂H₄).
+    3. Alkynes: Contain at least one triple bond (e.g., ethyne, C₂H₂).
+    Functional groups are specific groups of atoms within molecules that determine their chemical reactivity. For instance:
+    Hydroxyl (-OH): Found in alcohols
+    Carboxyl (-COOH): Found in acids like acetic acid
 """,
                 style: TextStyle(color: Colors.white, fontSize: 20),
               ),

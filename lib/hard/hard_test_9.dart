@@ -105,17 +105,17 @@ class _HardTests9State extends State<HardTests9> {
               ),
 
               const Text(
-                """The laws of thermodynamics govern energy transfer:
-1. First Law: Energy cannot be created or destroyed, only transferred or transformed (law of conservation).
-2. Second Law: Entropy of an isolated system always increases over time.
-3. Third Law: As temperature approaches absolute zero, the entropy of a system approaches a constant minimum.
+                """   The laws of thermodynamics govern energy transfer:
+    1. First Law: Energy cannot be created or destroyed, only transferred or transformed (law of conservation).
+    2. Second Law: Entropy of an isolated system always increases over time.
+    3. Third Law: As temperature approaches absolute zero, the entropy of a system approaches a constant minimum.
 
 
-Key terms:
-Enthalpy (H): Total heat content of a system.
-Entropy (S): Measure of disorder in a system.
-Gibbs Free Energy (G): Determines spontaneity of a process:
-Delta G = Delta H - T Delta S
+    Key terms:
+    Enthalpy (H): Total heat content of a system.
+    Entropy (S): Measure of disorder in a system.
+    Gibbs Free Energy (G): Determines spontaneity of a process:
+    Delta G = Delta H - T Delta S
 """,
                 style: TextStyle(color: Colors.white, fontSize: 20),
               ),

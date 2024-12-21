@@ -10,8 +10,8 @@ class HardTests5 extends StatelessWidget {
       pageTitle: "Test 5",
       textTitle: "Acids and Bases",
       longText:
-          """Acids and bases are two important categories of chemicals. Acids are substances that release hydrogen ions (H⁺) when dissolved in water, giving the solution a pH less than 7. Examples of acids include hydrochloric acid (HCl) and sulfuric acid (H₂SO₄). Bases, on the other hand, release hydroxide ions (OH⁻) in water, resulting in a pH greater than 7. Common bases include sodium hydroxide (NaOH) and ammonia (NH₃).
-The strength of an acid or base depends on how completely it dissociates in water. Strong acids and bases dissociate fully, while weak acids and bases only partially dissociate. Acids and bases can neutralize each other, forming water and a salt in the process. This reaction is called neutralization.
+          """   Acids and bases are two important categories of chemicals. Acids are substances that release hydrogen ions (H⁺) when dissolved in water, giving the solution a pH less than 7. Examples of acids include hydrochloric acid (HCl) and sulfuric acid (H₂SO₄). Bases, on the other hand, release hydroxide ions (OH⁻) in water, resulting in a pH greater than 7. Common bases include sodium hydroxide (NaOH) and ammonia (NH₃).
+    The strength of an acid or base depends on how completely it dissociates in water. Strong acids and bases dissociate fully, while weak acids and bases only partially dissociate. Acids and bases can neutralize each other, forming water and a salt in the process. This reaction is called neutralization.
 """,
       questions: [
         {

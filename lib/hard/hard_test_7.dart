@@ -10,11 +10,11 @@ class HardTests7 extends StatelessWidget {
       pageTitle: "Test 7",
       textTitle: "Chemical Equilibrium",
       longText:
-          """Chemical equilibrium occurs in reversible reactions when the rate of the forward reaction equals the rate of the reverse reaction. The concentrations of reactants and products remain constant but not necessarily equal.
-The equilibrium constant, K, indicates the extent of the reaction:
-A large K (K > 1) means products dominate at equilibrium.
-A small K (K < 1) means reactants dominate.
-Changes in conditions, such as temperature or pressure, can shift the equilibrium position according to Le Chatelier's Principle.
+          """   Chemical equilibrium occurs in reversible reactions when the rate of the forward reaction equals the rate of the reverse reaction. The concentrations of reactants and products remain constant but not necessarily equal.
+    The equilibrium constant, K, indicates the extent of the reaction:
+    A large K (K > 1) means products dominate at equilibrium.
+    A small K (K < 1) means reactants dominate.
+    Changes in conditions, such as temperature or pressure, can shift the equilibrium position according to Le Chatelier's Principle.
 """,
       questions: [
         {

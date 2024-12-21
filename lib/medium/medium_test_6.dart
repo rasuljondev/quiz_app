@@ -137,9 +137,9 @@ class _MediumTest6State extends State<MediumTest6> {
               ),
 
               const Text(
-                """Matter exists in three primary states: solid, liquid, and gas. Each state has unique characteristics based on the arrangement and movement of its particles.
-In a solid, particles are tightly packed together in a fixed structure, giving solids a definite shape and volume. In a liquid, particles are less tightly packed and can move past each other, allowing liquids to take the shape of their container while maintaining a fixed volume. Gases, on the other hand, have particles that are far apart and move freely. As a result, gases have neither a definite shape nor a fixed volume.
-Temperature and pressure play a significant role in changing the state of matter. For instance, heating a solid can cause it to melt into a liquid, and further heating turns the liquid into a gas through evaporation. Similarly, cooling a gas can condense it into a liquid, and freezing a liquid results in a solid. These processes are examples of physical changes.
+                """   Matter exists in three primary states: solid, liquid, and gas. Each state has unique characteristics based on the arrangement and movement of its particles.
+    In a solid, particles are tightly packed together in a fixed structure, giving solids a definite shape and volume. In a liquid, particles are less tightly packed and can move past each other, allowing liquids to take the shape of their container while maintaining a fixed volume. Gases, on the other hand, have particles that are far apart and move freely. As a result, gases have neither a definite shape nor a fixed volume.
+    Temperature and pressure play a significant role in changing the state of matter. For instance, heating a solid can cause it to melt into a liquid, and further heating turns the liquid into a gas through evaporation. Similarly, cooling a gas can condense it into a liquid, and freezing a liquid results in a solid. These processes are examples of physical changes.
 """,
                 style: TextStyle(color: Colors.white, fontSize: 20),
               ),
