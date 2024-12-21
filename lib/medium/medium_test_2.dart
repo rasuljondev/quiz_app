@@ -59,12 +59,30 @@ class _MediumTest2State extends State<MediumTest2> {
   final Map<int, String?> dropdownAnswers = {}; // To store dropdown selections
 
   final List<Map<String, dynamic>> textFieldQuestions = [
-    {"question": "1. Paragraph A", "answer": "viii"},
-    {"question": "2. Paragraph B", "answer": "ii"},
-    {"question": "3. Paragraph C", "answer": "vi"},
-    {"question": "4. Paragraph D", "answer": "i"},
-    {"question": "5. Paragraph E", "answer": "iii"},
-    {"question": "6. Paragraph F", "answer": "v"},
+    {
+      "question": "1. Paragraph A",
+      "answer": 'viii The relationship between smell and feelings'
+    },
+    {
+      "question": "2. Paragraph B",
+      "answer": 'ii The role of smell in personal relationships',
+    },
+    {
+      "question": "3. Paragraph C",
+      "answer": 'vi Why our sense of smell is not appreciated',
+    },
+    {
+      "question": "4. Paragraph D",
+      "answer": 'i The difficulties of talking about smells',
+    },
+    {
+      "question": "5. Paragraph E",
+      "answer": 'iii Future studies into smell',
+    },
+    {
+      "question": "6. Paragraph F",
+      "answer": 'v The interpretation of smells as a factor in defining groups',
+    },
     {
       "question":
           "11. Tests have shown that odours can help people recognise the belonging to their husbands and wives.",
@@ -138,6 +156,8 @@ class _MediumTest2State extends State<MediumTest2> {
             TextButton(
               onPressed: () {
                 Navigator.pop(context);
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => const Medium()));
               },
               child: const Text("OK"),
             ),
@@ -218,12 +238,22 @@ F
                         style: TextStyle(color: Colors.white),
                       ),
                       dropdownColor: const Color.fromRGBO(41, 36, 59, 1),
-                      items: ['i', 'ii', 'iii', 'iv', 'v', 'vi', 'vii', 'viii']
+                      items: [
+                        'i The difficulties of talking about smells',
+                        'ii The role of smell in personal relationships',
+                        'iii Future studies into smell',
+                        'iv The relationship between the brain and the nose',
+                        'v The interpretation of smells as a factor in defining groups',
+                        'vi Why our sense of smell is not appreciated',
+                        'vii Smell is our superior sense',
+                        'viii The relationship between smell and feelings'
+                      ]
                           .map((e) => DropdownMenuItem<String>(
                                 value: e,
                                 child: Text(
                                   e,
-                                  style: const TextStyle(color: Colors.white),
+                                  style: const TextStyle(
+                                      color: Colors.white, fontSize: 12),
                                 ),
                               ))
                           .toList(),
@@ -242,7 +272,7 @@ F
                         padding: const EdgeInsets.only(top: 4.0),
                         child: Text(
                           "Correct answer: ${textFieldQuestions[index]['answer']}",
-                          style: const TextStyle(color: Colors.green),
+                          style: const TextStyle(color: Colors.red),
                         ),
                       ),
                     const SizedBox(height: 16),
