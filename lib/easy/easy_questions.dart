@@ -25,27 +25,27 @@ class EasyQuestion1 {
 final List<EasyQuestion1> easyQuestions = [
   EasyQuestion1(
       questionText:
-          """In humans, keeping a constant balance between acidity and alkalinity in the blood is essential. If blood pH drops below 7.35 or rises above 7.45, all of the functions in the body are impaired and life-threatening conditions can soon develop.
-Many processes in the body produce acid wastes, _______________ would lower the pH of blood below the safe level unless neutralized. Several systems are in place to keep the pH constant within the necessary range. Certain conditions, however, can cause acids to be made faster than these systems can react. Most of the pH control involves three related substances: carbon dioxide, carbonic acid, and bicarbonate ions. Carbonic acid is formed when carbon dioxide reacts with water.""",
+          """   In humans, keeping a constant balance between acidity and alkalinity in the blood is essential. If blood pH drops below 7.35 or rises above 7.45, all of the functions in the body are impaired and life-threatening conditions can soon develop.
+    Many processes in the body produce acid wastes, _______________ would lower the pH of blood below the safe level unless neutralized. Several systems are in place to keep the pH constant within the necessary range. Certain conditions, however, can cause acids to be made faster than these systems can react. Most of the pH control involves three related substances: carbon dioxide, carbonic acid, and bicarbonate ions. Carbonic acid is formed when carbon dioxide reacts with water.""",
       options: ["which", "them", "it"],
       correctAnswer: "which",
       type: "test"),
   EasyQuestion1(
       questionText:
-          """Bicarbonate ions are formed when the carbonic acid releases a hydrogen ion. Excess carbonic acid lowers the pH, while excess bicarbonate ions raise ___________
+          """   Bicarbonate ions are formed when the carbonic acid releases a hydrogen ion. Excess carbonic acid lowers the pH, while excess bicarbonate ions raise ___________
 """,
       options: ["which", "them", "it"],
       correctAnswer: "it",
       type: "test"),
   EasyQuestion1(
       questionText:
-          """The kidneys store bicarbonate ions and will release or absorb _______________ to help adjust the pH of the blood. Breathing faster removes more carbon dioxide from the blood, which reduces the amount of carbonic acid; in contrast, breathing more slowly has the opposite effect. In a healthy body, these systems automatically neutralize normal amounts of acid wastes and maintain blood pH within the very small range necessary for the body to function normally.""",
+          """   The kidneys store bicarbonate ions and will release or absorb _______________ to help adjust the pH of the blood. Breathing faster removes more carbon dioxide from the blood, which reduces the amount of carbonic acid; in contrast, breathing more slowly has the opposite effect. In a healthy body, these systems automatically neutralize normal amounts of acid wastes and maintain blood pH within the very small range necessary for the body to function normally.""",
       options: ["which", "them", "it"],
       correctAnswer: "them",
       type: "test"),
   EasyQuestion1(
       questionText:
-          """In some cases, _________________ systems can be overwhelmed. This can happen to people with diabetes if their blood sugar drops too low for too long. People with diabetes do not make enough insulin, which the body uses to release stored sugar into the blood to supply the body with energy. If a person's insulin level gets too low for too long, the body breaks down fats to use for energy. The waste produced from breaking down fats is acidic, so the blood pH drops.
+          """   In some cases, _________________ systems can be overwhelmed. This can happen to people with diabetes if their blood sugar drops too low for too long. People with diabetes do not make enough insulin, which the body uses to release stored sugar into the blood to supply the body with energy. If a person's insulin level gets too low for too long, the body breaks down fats to use for energy. The waste produced from breaking down fats is acidic, so the blood pH drops.
 If the kidneys exhaust their supply of bicarbonate ions, and the lungs cannot remove carbon dioxide fast enough to raise pH, all of the other functions in the body begin to fail as well. The person will need medical treatment to support these functions until the pH balancing system can catch up. The system will then keep the blood pH constant, as long as the production of acid wastes does not exceed the body's capacity to neutralize them.
 """,
       options: ["these", "them", "it"],

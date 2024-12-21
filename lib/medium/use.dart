@@ -56,8 +56,8 @@ class _MediumTest2State extends State<MediumTest2> {
   ];
 
   final Map<int, String?> userAnswers = {}; // To store user-selected answers
-  final Map<int, String?> dropdownAnswers = {}; // To store dropdown selections
-
+  final Map<int, bool?> questionResults =
+      {}; // To store correct/incorrect results
   final List<Map<String, dynamic>> textFieldQuestions = [
     {"question": "1. Paragraph A", "answer": "viii"},
     {"question": "2. Paragraph B", "answer": "ii"},
@@ -67,7 +67,7 @@ class _MediumTest2State extends State<MediumTest2> {
     {"question": "6. Paragraph F", "answer": "v"},
     {
       "question":
-          "11. Tests have shown that odours can help people recognise the belonging to their husbands and wives.",
+          "11. Tests have shown that odours can help people recognise the  belonging to their husbands and wives.",
       "answer": "clothing"
     },
     {
@@ -77,23 +77,24 @@ class _MediumTest2State extends State<MediumTest2> {
     },
     {
       "question":
-          "13. The sense of smell may involve response to which do not smell, in addition to obvious odours.",
+          "13. The sense of smell may involve response to  which do not smell, in addition to obvious odours.",
       "answer": "chemicals"
     },
     {
       "question":
-          "14. Odours regarded as unpleasant in certain are not regarded as unpleasant in others.",
+          "14. Odours regarded as unpleasant in certain  are not regarded as unpleasant in others.",
       "answer": "cultures"
     },
   ];
 
   final List<TextEditingController> textFieldControllers = [];
   bool isSubmitted = false;
+  bool showFeedback = false;
 
   @override
   void initState() {
     super.initState();
-    for (var i = 6; i < textFieldQuestions.length; i++) {
+    for (var i = 0; i < textFieldQuestions.length; i++) {
       textFieldControllers.add(TextEditingController());
     }
   }
@@ -102,15 +103,11 @@ class _MediumTest2State extends State<MediumTest2> {
     setState(() {
       isSubmitted = true;
     });
+    _showResultsDialog();
+  }
 
+  void _showResultsDialog() {
     int correctAnswers = 0;
-
-    // Count correct answers for dropdown questions
-    for (int i = 0; i < 6; i++) {
-      if (dropdownAnswers[i] == textFieldQuestions[i]['answer']) {
-        correctAnswers++;
-      }
-    }
 
     // Count correct answers for multiple-choice questions
     for (int i = 0; i < questions.length; i++) {
@@ -120,8 +117,8 @@ class _MediumTest2State extends State<MediumTest2> {
     }
 
     // Count correct answers for TextField questions
-    for (int i = 6; i < textFieldQuestions.length; i++) {
-      if (textFieldControllers[i - 6].text.trim().toLowerCase() ==
+    for (int i = 0; i < textFieldQuestions.length; i++) {
+      if (textFieldControllers[i].text.trim().toLowerCase() ==
           textFieldQuestions[i]["answer"]!.toLowerCase()) {
         correctAnswers++;
       }
@@ -138,6 +135,8 @@ class _MediumTest2State extends State<MediumTest2> {
             TextButton(
               onPressed: () {
                 Navigator.pop(context);
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => const Medium()));
               },
               child: const Text("OK"),
             ),
@@ -194,62 +193,63 @@ F
                 style: TextStyle(color: Colors.white, fontSize: 20),
               ),
               const Text(
-                """Questions 1-6\nReading Passage has six paragraphs, A-F.\nChoose the correct number, i-viii, in boxes 1-6 on your answer sheet.\n""",
+                """Questions 1-6\nReading Passage 3 has six paragraphs, A-F.\nChoose the correct heading for each paragraph from the list of headings below.\nWrite the correct number, i-viii, in boxes 1-6 on your answer sheet.\n""",
                 style: TextStyle(
                     color: Colors.white,
                     fontSize: 20,
                     fontWeight: FontWeight.w700),
               ),
               const SizedBox(height: 16),
+
+              // Text Field Questions
+              const SizedBox(height: 24),
+              ...[
+                for (int i = 0; i < 6; i++) ...[
+                  Text(
+                    textFieldQuestions[i]["question"]!,
+                    style: const TextStyle(color: Colors.white, fontSize: 18),
+                  ),
+                  const SizedBox(height: 8),
+                  TextField(
+                    controller: textFieldControllers[i],
+                    enabled: !isSubmitted,
+                    decoration: InputDecoration(
+                      filled: true,
+                      fillColor: isSubmitted
+                          ? textFieldControllers[i].text.trim().toLowerCase() ==
+                                  textFieldQuestions[i]["answer"]!.toLowerCase()
+                              ? Colors.green
+                              : Colors.red
+                          : Colors.white10,
+                      border: const OutlineInputBorder(),
+                    ),
+                    style: const TextStyle(color: Colors.white),
+                  ),
+                  if (isSubmitted &&
+                      textFieldControllers[i].text.trim().toLowerCase() !=
+                          textFieldQuestions[i]["answer"]!.toLowerCase())
+                    Padding(
+                      padding: const EdgeInsets.only(top: 4.0),
+                      child: Text(
+                        "Correct answer: ${textFieldQuestions[i]["answer"]}",
+                        style: const TextStyle(color: Colors.green),
+                      ),
+                    ),
+                  const SizedBox(height: 16),
+                ],
+              ],
+
+              const Text(
+                """Questions 7-10\nChoose the correct letter, A, B, C or D.\nWrite the correct letter in boxes 7-10 on your answer sheet.\n""",
+                style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 20,
+                    fontWeight: FontWeight.w700),
+              ),
               const SizedBox(height: 16),
-              ...List.generate(6, (index) {
-                return Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      textFieldQuestions[index]['question'],
-                      style: const TextStyle(color: Colors.white, fontSize: 18),
-                    ),
-                    const SizedBox(height: 8),
-                    DropdownButton<String>(
-                      value: dropdownAnswers[index],
-                      hint: const Text(
-                        "Select an option",
-                        style: TextStyle(color: Colors.white),
-                      ),
-                      dropdownColor: const Color.fromRGBO(41, 36, 59, 1),
-                      items: ['i', 'ii', 'iii', 'iv', 'v', 'vi', 'vii', 'viii']
-                          .map((e) => DropdownMenuItem<String>(
-                                value: e,
-                                child: Text(
-                                  e,
-                                  style: const TextStyle(color: Colors.white),
-                                ),
-                              ))
-                          .toList(),
-                      onChanged: isSubmitted
-                          ? null
-                          : (value) {
-                              setState(() {
-                                dropdownAnswers[index] = value;
-                              });
-                            },
-                    ),
-                    if (isSubmitted &&
-                        dropdownAnswers[index] !=
-                            textFieldQuestions[index]['answer'])
-                      Padding(
-                        padding: const EdgeInsets.only(top: 4.0),
-                        child: Text(
-                          "Correct answer: ${textFieldQuestions[index]['answer']}",
-                          style: const TextStyle(color: Colors.green),
-                        ),
-                      ),
-                    const SizedBox(height: 16),
-                  ],
-                );
-              }),
-              //display
+
+              // Display multiple choice questions
+              // Display multiple choice questions
               ...questions.asMap().entries.map((entry) {
                 int index = entry.key;
                 Map<String, dynamic> question = entry.value;
@@ -328,60 +328,54 @@ F
                 );
               }),
               const Text(
-                "Questions 11-14: Fill in the blanks",
+                """Questions 11-14\nComplete the sentences below.\nChoose ONE WORD ONLY from the passage for each answer.\nWrite your answers in boxes 11-14 on your answer sheet.""",
                 style: TextStyle(
                     color: Colors.white,
                     fontSize: 20,
-                    fontWeight: FontWeight.bold),
+                    fontWeight: FontWeight.w700),
               ),
               const SizedBox(height: 16),
-              ...List.generate(textFieldControllers.length, (index) {
-                final questionIndex = index + 6;
-                return Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      textFieldQuestions[questionIndex]['question'],
-                      style: const TextStyle(color: Colors.white, fontSize: 18),
+
+              const SizedBox(height: 24),
+              ...[
+                for (int i = 6; i < 10; i++) ...[
+                  Text(
+                    textFieldQuestions[i]["question"]!,
+                    style: const TextStyle(color: Colors.white, fontSize: 18),
+                  ),
+                  const SizedBox(height: 8),
+                  TextField(
+                    controller: textFieldControllers[i],
+                    enabled: !isSubmitted,
+                    decoration: InputDecoration(
+                      filled: true,
+                      fillColor: isSubmitted
+                          ? textFieldControllers[i].text.trim().toLowerCase() ==
+                                  textFieldQuestions[i]["answer"]!.toLowerCase()
+                              ? Colors.green
+                              : Colors.red
+                          : Colors.white10,
+                      border: const OutlineInputBorder(),
                     ),
-                    const SizedBox(height: 8),
-                    TextField(
-                      controller: textFieldControllers[index],
-                      enabled: !isSubmitted,
-                      style: const TextStyle(color: Colors.white),
-                      decoration: InputDecoration(
-                        filled: true,
-                        fillColor: const Color.fromRGBO(41, 36, 59, 1),
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(8.0),
-                        ),
-                        hintText: "Enter your answer",
-                        hintStyle: const TextStyle(color: Colors.grey),
+                  ),
+                  if (isSubmitted &&
+                      textFieldControllers[i].text.trim().toLowerCase() !=
+                          textFieldQuestions[i]["answer"]!.toLowerCase())
+                    Padding(
+                      padding: const EdgeInsets.only(top: 4.0),
+                      child: Text(
+                        "Correct answer: ${textFieldQuestions[i]["answer"]}",
+                        style: const TextStyle(color: Colors.green),
                       ),
                     ),
-                    if (isSubmitted &&
-                        textFieldControllers[index].text.trim().toLowerCase() !=
-                            textFieldQuestions[questionIndex]["answer"]
-                                .toLowerCase())
-                      Padding(
-                        padding: const EdgeInsets.only(top: 4.0),
-                        child: Text(
-                          "Correct answer: ${textFieldQuestions[questionIndex]['answer']}",
-                          style: const TextStyle(color: Colors.red),
-                        ),
-                      ),
-                    const SizedBox(height: 16),
-                  ],
-                );
-              }),
-              ElevatedButton(
-                onPressed: isSubmitted ? null : handleSubmit,
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.white,
-                ),
-                child: const Text(
-                  "Submit",
-                  style: TextStyle(color: Colors.black),
+                  const SizedBox(height: 16),
+                ],
+              ],
+              // Submit Button
+              Center(
+                child: ElevatedButton(
+                  onPressed: isSubmitted ? null : handleSubmit,
+                  child: const Text("Submit"),
                 ),
               ),
             ],

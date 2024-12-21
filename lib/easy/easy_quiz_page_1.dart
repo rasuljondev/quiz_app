@@ -155,7 +155,6 @@ class _EasyQuizPageState extends State<EasyQuizPage> {
                     fontWeight: FontWeight.bold,
                     color: Color.fromRGBO(58, 255, 210, 1),
                   ),
-                  textAlign: TextAlign.center,
                 ),
                 const SizedBox(height: 20),
 
